@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: thesis-backend
+    env: python
+    buildCommand: ""
+    startCommand: gunicorn app:app
+    envVars:
+      - key: GEMINI_API_KEY
+        value: "AIzaSyA2LQA-9MFL8cxhZeYmFuFaggS46Wgw9gY"
