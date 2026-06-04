@@ -1,9 +1,11 @@
 services:
   - type: web
     name: thesis-backend
-    env: python
-    buildCommand: ""
-    startCommand: gunicorn app:app
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app --bind 0.0.0.0:$PORT
     envVars:
-      - key: GEMINI_API_KEY
-        value: "AIzaSyA2LQA-9MFL8cxhZeYmFuFaggS46Wgw9gY"
+      - key: OPENROUTER_API_KEY
+        sync: false
+      - key: PYTHON_VERSION
+        value: "3.11.9"
